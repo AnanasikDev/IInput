@@ -4,7 +4,7 @@ public static class IInput
 {
     private static bool IsKeyDown = false;
     private static float LastTime;
-    public static bool GetKeyDown(KeyCode keyCode, float delay = 0.25f)
+    public static bool GetKeyDown(KeyCode keyCode, float delay = 0.25f, bool doubleClicksOnly = true)
     {
         if (Input.GetKeyDown(keyCode))
         {
@@ -14,7 +14,7 @@ public static class IInput
                 IsKeyDown = true;
                 return false;
             }
-            
+            if (doubleClicksOnly) IsKeyDown = false;
             return true;
         }
         if (Time.realtimeSinceStartup > LastTime)
