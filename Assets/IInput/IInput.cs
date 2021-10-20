@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public static class IInput
+public class IInput
 {
-    private static int ClicksCount = 1;
-    private static float LastTime;
-    public static bool GetKeyDown(KeyCode keyCode, int times = 2, float delay = 0.25f, bool doubleClicksOnly = true)
+    private int ClicksCount = 1;
+    private float LastTime;
+    public bool GetKeyDown(KeyCode keyCode, int times = 2, float delay = 0.25f, bool doubleClicksOnly = true)
     {
         if (Input.GetKeyDown(keyCode))
         {
