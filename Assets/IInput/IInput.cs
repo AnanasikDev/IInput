@@ -2,24 +2,24 @@
 
 public static class IInput
 {
-    private static bool IsKeyDown = false;
+    private static int ClicksCount = 1;
     private static float LastTime;
-    public static bool GetKeyDown(KeyCode keyCode, float delay = 0.25f, bool doubleClicksOnly = true)
+    public static bool GetKeyDown(KeyCode keyCode, int times = 2, float delay = 0.25f, bool doubleClicksOnly = true)
     {
         if (Input.GetKeyDown(keyCode))
         {
             LastTime = Time.realtimeSinceStartup + delay;
-            if (!IsKeyDown)
+            if (ClicksCount < times)
             {
-                IsKeyDown = true;
+                ClicksCount++;
                 return false;
             }
-            if (doubleClicksOnly) IsKeyDown = false;
+            if (doubleClicksOnly) ClicksCount = 1;
             return true;
         }
         if (Time.realtimeSinceStartup > LastTime)
         {
-            IsKeyDown = false;
+            ClicksCount = 1;
             return false;
         }
         return false;

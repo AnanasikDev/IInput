@@ -6,7 +6,7 @@ public class Main : MonoBehaviour
 {
     void Update()
     {
-        if (IInput.GetKeyDown(KeyCode.Space))
+        if (IInput.GetKeyDown(KeyCode.Space, 3))
         {
             print("DOUBLEKILL");
         }
