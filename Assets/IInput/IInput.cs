@@ -24,4 +24,9 @@ public class IInput
         }
         return false;
     }
+    public void Reset()
+    {
+        LastTime = 0;
+        ClicksCount = 0;
+    }
 }
